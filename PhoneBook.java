@@ -22,8 +22,10 @@ public class PhoneBook {
         myPhoneBook.addphone("Maria", 32432433);
         myPhoneBook.printbook();
         myPhoneBook.removeName("Maria");
+        System.out.println(myPhoneBook.find("Pete"));
     }
 
+    // Метод добавляющий телефон с именем(если имя уже есть добавляет новый телефон в arraylist)
     public void addphone(String name, int phoneNum) {
         ArrayList<Integer> numbers = new ArrayList<>();
         numbers.add(0, phoneNum);
@@ -35,10 +37,12 @@ public class PhoneBook {
         }
     }
 
+    // Удаляет имя из HashMap
     public void removeName(String name) {
         phoneBook.remove(name);
     }
 
+    // Находит и выводит номера телефонов указанного человека
     public ArrayList<Integer> find(String name) {
         if (phoneBook.containsKey(name)) {
             return phoneBook.get(name);
@@ -47,6 +51,9 @@ public class PhoneBook {
         }
     }
 
+
+    // вывод всей телефонной книги в порядке убывания количества телефонов у человека(много проблем возникло,
+    // в результате нашел код на строке 63 (нахождение entry с максимальным value в hashmap) в интернете и имплементировал в код с изменениями)
     public void printbook() {
         HashMap<String, ArrayList<Integer>> thing = new HashMap<>();
         thing.putAll(phoneBook);
@@ -54,8 +61,7 @@ public class PhoneBook {
         Map.Entry<String, ArrayList<Integer>> maxEntry = null;
         for (int i = 0; i < n; i++) {
             for (Map.Entry<String, ArrayList<Integer>> entry : thing.entrySet()) {
-                if (maxEntry == null
-                        || Integer.valueOf(entry.getValue().size()).compareTo(maxEntry.getValue().size()) > 0) {
+                if (maxEntry == null || Integer.valueOf(entry.getValue().size()).compareTo(maxEntry.getValue().size()) > 0) {
                     maxEntry = entry;
                 }
             }
