@@ -59,29 +59,9 @@ public class PhoneBook {
                     maxEntry = entry;
                 }
             }
-            System.out.println(maxEntry.getKey()+" "+maxEntry.getValue());
+            System.out.println("Имя = "+maxEntry.getKey()+": Номера телефонов = "+maxEntry.getValue());
             thing.remove(maxEntry.getKey());
             maxEntry = null;
         }
     }
-
-    // public LinkedHashMap<String, ArrayList<Integer>> PrintBook(HashMap<String,
-    // ArrayList<Integer>> phoneb) {
-    // LinkedHashMap<String, ArrayList<Integer>> thing = new LinkedHashMap<>();
-    // for (Map.Entry<String, ArrayList<Integer>> entry : phoneb.entrySet()){
-    // Integer maxsize = entry.getValue().size();
-    // String keykey = new String();
-    // for (Map.Entry<String, ArrayList<Integer>> entry2 : phoneb.entrySet()){
-    // if (entry2.getValue().size() >= maxsize) {
-    // maxsize = entry2.getValue().size();
-    // keykey = entry2.getKey();
-    // System.out.println(keykey);
-    // }
-    // }
-    // thing.put(keykey, entry.getValue());
-    // phoneb.remove(keykey);
-    // }
-    // System.out.println(thing);
-    // return thing;
-    // }
 }
